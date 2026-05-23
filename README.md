@@ -1,4 +1,4 @@
-# SketchBuilder
+# SketchBuilder: Learning-Augmented Proactive Sketch Construction for Heavy Hitter Detection in Data Streams
 
 ## Introduction
 Heavy-hitter detection is a fundamental task in many web-centric applications. SOTA self-tuned sketches are limited to local structure adjustment to adapt to skewed stream, while ignoring hash collisions that persist at the global sketch level. Meanwhile, the resulting repeated adjustments needed to resolve these collisions incur high computational overhead, degrading both accuracy and efficiency.
@@ -7,3 +7,6 @@ Experiments on real-world traces show that SketchBuilder achieves an F_beta-scor
 
 ## About this repo
 The core PatternSketch structure is implemented in ./model, where the Dispatcher.ipynb is responsible for pre-training and fine-tuning of the Dispatcher model, and the Constructor.ipynb is responsible for pre-training of the Constructor model, all preserved in the form of a .pt file. The main function SketchBuilder.ipynb first loads the generated model file and then receives data streams as inputs for top-k heavy hitter detection and threshold-t heavy hitter detection.
+
+## Reference
+[1] Yifan Han, Yang Du, He Huang, Yu-e Sun, and Xiaocan Wu. 2026. Sketch- Builder: Learning-Augmented Proactive Sketch Construction for Heavy Hitter Detection in Data Streams. In Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2 (KDD 2026), August 9–13, 2026, Jeju Island, Republic of Korea. ACM, New York, NY, USA, 12 pages. https://doi.org/10.1145/3770855.3817652
