@@ -1,1 +1,9 @@
 # SketchBuilder
+
+## Introduction
+Heavy-hitter detection is a fundamental task in many web-centric applications. SOTA self-tuned sketches are limited to local structure adjustment to adapt to skewed stream, while ignoring hash collisions that persist at the global sketch level. Meanwhile, the resulting repeated adjustments needed to resolve these collisions incur high computational overhead, degrading both accuracy and efficiency.
+We present SketchBuilder, a framework that shifts from reactive adjustment to proactive sketch construction with learning-based guidance to improve heavy hitter detection. Unlike reactive approaches, SketchBuilder analyzes historical sketches to predict upcoming distributions, optimizing both global mapping strategy and local memory layout to reduce collisions and lower adjustment overhead, for improving accuracy and efficiency. SketchBuilder contains two complementary learning modules: Dispatcher minimizes heavy hitter collisions through adaptive placement, while Constructor tailors memory layouts to match anticipated traffic distributions and scales for sudden bursts.
+Experiments on real-world traces show that SketchBuilder achieves an F_beta-score of 0.99 for top-k detection and 99.70% precision for threshold-t detection using only 100 KB of memory. Compared with state-of-the-art solutions, it reduces average absolute error by up to 99.81%, marking a significant advance in both accuracy and efficiency.
+
+## About this repo
+The core PatternSketch structure is implemented in ./model, where the Dispatcher.ipynb is responsible for pre-training and fine-tuning of the Dispatcher model, and the Constructor.ipynb is responsible for pre-training of the Constructor model, all preserved in the form of a .pt file. The main function SketchBuilder.ipynb first loads the generated model file and then receives data streams as inputs for top-k heavy hitter detection and threshold-t heavy hitter detection.
